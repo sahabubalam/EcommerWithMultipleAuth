@@ -10,4 +10,13 @@ Route::post('admin-password-update','Admin\ResetPasswordController@reset')->name
 Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('dashboard','AdminController@dashboard')->name('admin.dashboard');
     Route::post('admin-logout','AdminController@logout')->name('admin.logout');
+    Route::get('admin-register','AdminController@register')->name('register');
+    Route::post('admin-register','AdminController@admin_register')->name('admin.register');
+
+    
 });
+//brand
+
+Route::get('add-brand','Admin\Brand\BrandController@brand')->name('brand');
+Route::get('brand-list','Admin\Brand\BrandController@brand_list')->name('brand_list');
+Route::post('brand-store','Admin\Brand\BrandController@brand_store')->name('store.brand');
