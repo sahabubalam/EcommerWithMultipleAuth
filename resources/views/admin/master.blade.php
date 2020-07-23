@@ -117,6 +117,17 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
+          <span>Category</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        
+          <a class="dropdown-item" href="{{route('category')}}">Category</a>
+          <a class="dropdown-item" href="{{route('category_list')}}">Category List</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
           <span>Brand</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -230,9 +241,9 @@
   <!-- Custom scripts for all pages-->
   <script src="{{asset('asset/js/sb-admin.min.js')}}"></script>
 
-  <!-- Demo scripts for this page-->
+  <!-- Demo scripts for this page  <script src="{{asset('asset/js/demo/chart-area-demo.js')}}"></script>-->
   <script src="{{asset('asset/js/demo/datatables-demo.js')}}"></script>
-  <script src="{{asset('asset/js/demo/chart-area-demo.js')}}"></script>
+ 
 
 </body>
 
