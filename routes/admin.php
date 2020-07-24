@@ -32,6 +32,16 @@ Route::get('delete/category/{id}','Admin\Category\CategoryController@delete_cate
 Route::get('edit/category/{id}','Admin\Category\CategoryController@edit_category');
 Route::post('update/category/{id}','Admin\Category\CategoryController@update_category');
 
+//product
+Route::get('product','Admin\Product\ProductController@product')->name('product');
+Route::get('product-list','Admin\Product\ProductController@product_list')->name('product_list');
+Route::post('store-product','Admin\Product\ProductController@store_product')->name('store.product');
+Route::get('delete/product/{id}','Admin\Product\ProductController@delete_product');
+Route::get('edit/product/{id}','Admin\Product\ProductController@edit_product');
+Route::post('update/product/{id}','Admin\Product\ProductController@update_product');
+
+
+
 
 
 
