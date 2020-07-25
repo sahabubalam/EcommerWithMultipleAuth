@@ -12,8 +12,11 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::post('admin-logout','AdminController@logout')->name('admin.logout');
     Route::get('admin-register','AdminController@register')->name('register');
     Route::post('admin-register','AdminController@admin_register')->name('admin.register');
-   
-    
+   //store blogpost
+
+    Route::post('store-blogpost','Admin\Blogpost\BlogpostController@store_blogpost')->name('store.blogpost');
+     //update blogpost
+    Route::post('update/blogpost/{id}','Admin\Blogpost\BlogpostController@update_blogpost');
 });
 //brand
 
@@ -39,6 +42,14 @@ Route::post('store-product','Admin\Product\ProductController@store_product')->na
 Route::get('delete/product/{id}','Admin\Product\ProductController@delete_product');
 Route::get('edit/product/{id}','Admin\Product\ProductController@edit_product');
 Route::post('update/product/{id}','Admin\Product\ProductController@update_product');
+//blogpost
+Route::get('blogpost','Admin\Blogpost\BlogpostController@blogpost')->name('blogpost');
+Route::get('blogpost-list','Admin\Blogpost\BlogpostController@blogpost_list')->name('blogpost_list');
+Route::get('delete/blogpost/{id}','Admin\Blogpost\BlogpostController@delete_blogpost');
+Route::get('edit/blogpost/{id}','Admin\Blogpost\BlogpostController@edit_blogpost');
+
+
+
 
 
 

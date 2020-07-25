@@ -77,5 +77,6 @@ Admin dashboard
 {{Auth::user()->email}}
 
 
+
 @endsection
 

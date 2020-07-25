@@ -20,4 +20,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//frontend
+
+Route::get('frontend/blogpost', 'Frontend\Blogpost\BlogpostController@show_blogpost')->name('frontend.blogpost');
+
+Route::get('frontend/about', 'Frontend\Blogpost\BlogpostController@about')->name('frontend.about');
+Route::get('frontend/product', 'Frontend\Blogpost\BlogpostController@product')->name('frontend.product');
+
+Route::get('frontend/blog/details/{id}', 'Frontend\Blogpost\BlogpostController@blog_details');
+
+
+
+//admin
 Route::prefix('admin')->group(base_path('routes/admin.php'));
