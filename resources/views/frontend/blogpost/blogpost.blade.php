@@ -1,332 +1,225 @@
-@extends('././index')
-@section('content')
+ @extends('index')
+ @section('content')
+ <!--================Home Banner Area =================-->
+ <section class="home_banner_area blog_banner">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="blog_b_text text-center">
+                    <h2>Dude You’re Getting
+                        <br /> a Telescope</h2>
+                    <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first</p>
+                    <a class="white_bg_btn" href="#">View More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
 	
-    <!-- Title page -->
-	<section  class=" d-flex bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('userasset/images/bg-02.jpg')}});">
-		<h2 class="ltext-105 cl0 txt-center">
-			Blog
-		</h2>
-	</section>	
+	
+	
+	
+	
 
+    <!--================Blog Categorie Area =================-->
+    <section class="blog_categorie_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="{{asset('front/img/blog/cat-post/cat-post-3.jpg')}}" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Social Life</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Enjoy your social life together</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="{{asset('front/img/blog/cat-post/cat-post-2.jpg')}}" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Politics</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Be a part of politics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="{{asset('front/img/blog/cat-post/cat-post-1.jpg')}}" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Food</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Let the food be finished</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Categorie Area =================-->
 
-	<!-- Content page -->
-	<section class="bg0 p-t-62 p-b-60">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-lg-9 p-b-80">
-					<div class="p-r-45 p-r-0-lg">
-						<!-- item blog -->
-						<div class="p-b-63">
+    <!--================Blog Area =================-->
+    <section class="blog_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog_left_sidebar">
+                        <article class="row blog_item">
 						@foreach($blogpost as $row)
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
-							
-								<img src="{{URL::to($row->post_image)}}" style="" alt="IMG-BLOG">
-								<div class="flex-col-c-m size-123 bg9 how-pos5">
-									<span class="ltext-107 cl2 txt-center">
-										22
-									</span>
-
-									<span class="stext-109 cl3 txt-center">
-										Jan 2018
-									</span>
-								</div>
-							</a>
-
-							<div class="p-t-32">
-							
-								<h4 class="p-b-15">
-									<a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
-										{{$row->title}}
-									</a>
-								</h4>
-
-								<p class="stext-117 cl6">
-									{{$row->post_description}}
-								</p>
-
-								<div class="flex-w flex-sb-m p-t-18">
-									<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
-										<span>
-											<span class="cl4">By</span> {{$row->posted_by}}  
-											<span class="cl12 m-l-4 m-r-6">|</span>
-										</span>
-
-										<span>
-											StreetStyle, Fashion, Couple  
-											<span class="cl12 m-l-4 m-r-6">|</span>
-										</span>
-
-										<span>
-											8 Comments
-										</span>
-									</span>
-
-									<a href="{{URL::to('frontend/blog/details/'.$row->id)}}" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-										Continue Reading
-
-										<i class="fa fa-long-arrow-right m-l-9"></i>
-									</a>
-								</div>
-							</div>
+                            <div class="col-md-3">
+                                <div class="blog_info text-right">
+								
+                                   
+                                    <ul class="blog_meta list">
+                                        <li>
+                                            <a href="#">Posted by
+                                                <i class="lnr lnr-user"></i>{{$row->posted_by}}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">12 Dec, 2020
+                                                <i class="lnr lnr-calendar-full"></i>
+                                            </a>
+                                        </li>
+                                       
+                                        <li>
+                                            <a href="#">06 Comments
+                                                <i class="lnr lnr-bubble"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+								
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="blog_post">
+								
+									<img src="{{URL::to($row->post_image)}}" style="height:280px;width:550px" alt="">
+                                    <div class="blog_details">
+                                        <a href="single-blog.html">
+                                            <h2>{{($row->title)}}</h2>
+                                        </a>
+                                        <p>{{($row->post_description)}}</p>
+                                        <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    </div>
+									
+                                </div>
+                            </div>
 							@endforeach
-						</div>
-					
+                        </article>
 
 					
-
-						<!-- Pagination -->
-						<div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
-							<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-								1
-							</a>
-
-							<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-								2
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 col-lg-3 p-b-80">
-					<div class="side-menu">
-						<div class="bor17 of-hidden pos-relative">
-							<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="search" placeholder="Search">
-
-							<button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
-								<i class="zmdi zmdi-search"></i>
-							</button>
-						</div>
-
-						<div class="p-t-55">
-							<h4 class="mtext-112 cl2 p-b-33">
-								Categories
-							</h4>
-
-							<ul>
-								<li class="bor18">
-									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										Fashion
-									</a>
-								</li>
-
-								<li class="bor18">
-									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										Beauty
-									</a>
-								</li>
-
-								<li class="bor18">
-									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										Street Style
-									</a>
-								</li>
-
-								<li class="bor18">
-									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										Life Style
-									</a>
-								</li>
-
-								<li class="bor18">
-									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										DIY & Crafts
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="p-t-65">
-							<h4 class="mtext-112 cl2 p-b-33">
-								Featured Products
-							</h4>
-
-							<ul>
-								<li class="flex-w flex-t p-b-30">
-									<a href="#" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
-										<img src="images/product-min-01.jpg" alt="PRODUCT">
-									</a>
-
-									<div class="size-215 flex-col-t p-t-8">
-										<a href="#" class="stext-116 cl8 hov-cl1 trans-04">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="stext-116 cl6 p-t-20">
-											$19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="flex-w flex-t p-b-30">
-									<a href="#" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
-										<img src="images/product-min-02.jpg" alt="PRODUCT">
-									</a>
-
-									<div class="size-215 flex-col-t p-t-8">
-										<a href="#" class="stext-116 cl8 hov-cl1 trans-04">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="stext-116 cl6 p-t-20">
-											$39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="flex-w flex-t p-b-30">
-									<a href="#" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
-										<img src="images/product-min-03.jpg" alt="PRODUCT">
-									</a>
-
-									<div class="size-215 flex-col-t p-t-8">
-										<a href="#" class="stext-116 cl8 hov-cl1 trans-04">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="stext-116 cl6 p-t-20">
-											$17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-
-						<div class="p-t-55">
-							<h4 class="mtext-112 cl2 p-b-20">
-								Archive
-							</h4>
-
-							<ul>
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											July 2018
-										</span>
-
-										<span>
-											(9)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											June 2018
-										</span>
-
-										<span>
-											(39)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											May 2018
-										</span>
-
-										<span>
-											(29)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											April  2018
-										</span>
-
-										<span>
-											(35)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											March 2018
-										</span>
-
-										<span>
-											(22)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											February 2018
-										</span>
-
-										<span>
-											(32)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											January 2018
-										</span>
-
-										<span>
-											(21)
-										</span>
-									</a>
-								</li>
-
-								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
-										<span>
-											December 2017
-										</span>
-
-										<span>
-											(26)
-										</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="p-t-50">
-							<h4 class="mtext-112 cl2 p-b-27">
-								Tags
-							</h4>
-
-							<div class="flex-w m-r--5">
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Fashion
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Lifestyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Denim
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Streetstyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Crafts
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
-	
-		
-@endsection
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a href="#" class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">
+                                            <span class="lnr lnr-chevron-left"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">01</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a href="#" class="page-link">02</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">03</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">04</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">09</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">
+                                            <span class="lnr lnr-chevron-right"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Posts">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="lnr lnr-magnifier"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                            <div class="br"></div>
+                        </aside>
+                        <aside class="single_sidebar_widget author_widget">
+                            <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                            <h4>Charlie Barber</h4>
+                            <p>Senior blog writer</p>
+                            <div class="social_icon">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-behance"></i>
+                                </a>
+                            </div>
+                            <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should
+                                have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits
+                                detractors.
+                            </p>
+                            <div class="br"></div>
+                        </aside>
+                        <aside class="single_sidebar_widget popular_post_widget">
+						
+                            <h3 class="widget_title">Popular Posts</h3>
+							@foreach($blogpost as $row)
+                            <div class="media post_item">
+						
+                              
+								<img src="{{URL::to($row->post_image)}}" style="height:50px;width:50px" alt="">
+                                <div class="media-body">
+                                    <a href="blog-details.html">
+                                        <h3>{{($row->title)}}</h3>
+                                    </a>
+                                    <p>02 Hours ago</p>
+                                </div>
+                            </div>
+							@endforeach
+                            <div class="br"></div>
+						
+                        </aside>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+	@endsection

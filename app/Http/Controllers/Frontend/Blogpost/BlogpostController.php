@@ -16,6 +16,11 @@ class BlogpostController extends Controller
         $blogpost=Blogpost::all();
         return view('frontend.blogpost.blogpost',compact('blogpost'));
     }
+    public function single_blogpost()
+    {
+       // $blogpost=Blogpost::all();
+        return view('frontend.blogpost.blog_details');
+    }
     //about
 
     public function about()
