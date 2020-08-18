@@ -50,7 +50,7 @@
 									<img class="d-block w-100" src="{{URL::to($row->image)}}" alt="Third slide">
 								</div>
 							</div>
-                            @endforeach
+                          
 						</div>
 					</div>
 				</div>
@@ -70,29 +70,36 @@
 						</ul>
 						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that
 							can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>
-						<div class="product_count">
-							<label for="qty">Quantity:</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button">
-								<i class="lnr lnr-chevron-up"></i>
-							</button>
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-							 class="reduced items-count" type="button">
-								<i class="lnr lnr-chevron-down"></i>
-							</button>
-						</div>
-						<div class="card_area">
-							<a class="main_btn" href="#">Add to Cart</a>
-							<a class="icon_btn" href="#">
-								<i class="lnr lnr lnr-diamond"></i>
-							</a>
-							<a class="icon_btn" href="#">
-								<i class="lnr lnr lnr-heart"></i>
-							</a>
-						</div>
+						
+                        
+                        <form action="{{URL::to('/frontend/cart/product/'.$row->id)}}" method="post">
+						 @csrf
+							<div class="product_count">
+								<label for="qty">Quantity:</label>
+								<input type="text" name="product_quantity" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+								<input type="hidden" id="sst" maxlength="12" value="{{$row->id}}" title="Quantity:" class="input-text qty">
+								<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+								class="increase items-count" type="button">
+									<i class="lnr lnr-chevron-up"></i>
+								</button>
+								<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+								class="reduced items-count" type="button">
+									<i class="lnr lnr-chevron-down"></i>
+								</button>
+							</div>
+							<div class="card_area">
+								<button class="btn btn-primary" type="submit">Add to Cart</button>
+								<a class="icon_btn" href="#">
+									<i class="lnr lnr lnr-diamond"></i>
+								</a>
+								<a class="icon_btn" href="#">
+									<i class="lnr lnr lnr-heart"></i>
+								</a>
+							</div>
+						</form>
 					</div>
 				</div>
+				@endforeach
                
 			</div>
 		</div>

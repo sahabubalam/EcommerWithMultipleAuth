@@ -38,6 +38,24 @@ Route::get('frontend/single-category/{id}', 'Frontend\Category\CategoryControlle
 
 //single product
 Route::get('frontend/single_product/{id}', 'Frontend\Product\ProductController@single_product');
+//cart product==================
+Route::post('frontend/cart/product/{id}', 'Frontend\Cart\CartController@add_cart');
+//cart ceack======
+Route::get('frontend/cart/check', 'Frontend\Cart\CartController@check');
+Route::get('frontend/destroy', 'Frontend\Cart\CartController@destroy');
+
+
+//show shipping info======
+Route::get('frontend/cart/shipping_details', 'Frontend\Cart\CartController@shipping_info')->name('shipping_info');
+//save shipping info======
+Route::post('frontend/cart/save_shipping_details', 'Frontend\Cart\CartController@save_shipping_info')->name('save.shipping');
+//cart list===========
+Route::get('frontend/cart/list', 'Frontend\Cart\CartController@cart_list')->name('cart.list');
+//check out payment===========
+Route::get('frontend/checkout/payment', 'Frontend\Cart\CartController@checkout_payment');
+//check out payment===========
+Route::get('frontend/confirm/order', 'Frontend\Cart\CartController@confirm_order')->name('confirm.order');
+
 
 
 

@@ -88,7 +88,16 @@
 								<a href="#">
 									<h4>{{$row->product_name}}</h4>
 								</a>
-								<h5>${{$row->selling_price}}</h5>
+								@if($row->discount_price==NULL)
+								
+									<h5>Price ${{$row->selling_price}}</h5>
+								
+								@else
+								
+									<h5>Discount ${{$row->discount_price}}</h5>
+								
+								@endif
+								
 							</div>
 							
 						</div>
