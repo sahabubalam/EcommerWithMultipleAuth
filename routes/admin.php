@@ -48,7 +48,15 @@ Route::get('blogpost-list','Admin\Blogpost\BlogpostController@blogpost_list')->n
 Route::get('delete/blogpost/{id}','Admin\Blogpost\BlogpostController@delete_blogpost');
 Route::get('edit/blogpost/{id}','Admin\Blogpost\BlogpostController@edit_blogpost');
 
+//order list
 
+Route::get('order-list','Admin\Order\OrderController@Order_list')->name('order_list');
+
+//order details list
+Route::get('order-status/{id}','Admin\Order\OrderController@order_status_edit');
+Route::post('update/order-status/{id}','Admin\Order\OrderController@order_status_update');
+
+Route::get('order-details-list','Admin\Order\OrderController@Order_details_list')->name('order_details_list');
 
 
 

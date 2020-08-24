@@ -158,6 +158,28 @@
           <a class="dropdown-item" href="{{route('blogpost_list')}}">Blogpost List</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Order</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        
+         
+          <a class="dropdown-item" href="{{route('order_list')}}">Order List</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Order Details</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        
+         
+          <a class="dropdown-item" href="{{route('order_details_list')}}">Order Details List</a>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>

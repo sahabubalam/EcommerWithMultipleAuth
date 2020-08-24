@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 use DB;
 use App\Model\Product;
 use App\Model\Shipping;
+use App\Model\Order;
+use App\Model\Order_detail;
+use Auth;
 use Cart;
 use Session;
+use App\Notifications\SendEmail;
+use App\User;
 
 class CartController extends Controller
 {
@@ -95,5 +100,104 @@ class CartController extends Controller
     public function checkout_payment()
     {
         return view('frontend.cart.payment');
+    }
+    public function confirm_order(Request $request)
+    {
+      
+            if($request->payment_type=="cash")
+            {
+                $user =User::find(Auth::id());
+                $order=new Order();
+                $order->user_id= Auth::user()->id;
+                $order->shipping_id=Session::get('shipping_id');
+                $order->total_price=Session::get('total');
+                $order->payment_type=$request->payment_type;
+                //return response()->json($order);
+               
+                $order->save();
+                $user->notify(new SendEmail($user, $order));
+             
+                $cartcontent=Cart::content();
+                //return response()->json($cartcontent);
+                foreach( $cartcontent as $row)
+                {
+                    $order_details=new Order_detail();
+                    $order_details->order_id=$order->id;
+                    $order_details->product_id=$row->id;
+                    $order_details->product_name=$row->name;
+                    $order_details->product_image=$row->options->image;
+                    $order_details->product_price=$row->price;
+                    $order_details->product_quantity=$row->qty;
+                   // return response()->json($order_details);
+                    $order_details->save();
+    
+                }
+                Cart::destroy();
+                return redirect('/welcome');
+            }
+            elseif($request->payment_type=="paypal")
+            {
+                $order=new Order();
+                $order->user_id= Auth::user()->id;
+                $order->shipping_id=Session::get('shipping_id');
+                $order->total_price=Session::get('total');
+                $order->payment_type=$request->payment_type;
+                //return response()->json($order);
+
+                $order->save();
+                $user->notify(new SendEmail($user, $order));
+             
+                $cartcontent=Cart::content();
+                //return response()->json($cartcontent);
+                foreach( $cartcontent as $row)
+                {
+                    $order_details=new Order_detail();
+                    $order_details->order_id=$order->id;
+                    $order_details->product_id=$row->id;
+                    $order_details->product_name=$row->name;
+                    $order_details->product_image=$row->options->image;
+                    $order_details->product_price=$row->price;
+                    $order_details->product_quantity=$row->qty;
+                   // return response()->json($order_details);
+                    $order_details->save();
+    
+                }
+                Cart::destroy();
+                return redirect('/welcome');
+    
+            }
+            elseif($request->payment_type=="bkash")
+            {
+                $order=new Order();
+                $order->user_id= Auth::user()->id;
+                $order->shipping_id=Session::get('shipping_id');
+                $order->total_price=Session::get('total');
+                $order->payment_type=$request->payment_type;
+                //return response()->json($order);
+                $order->save();
+                $user->notify(new SendEmail($user, $order));
+             
+                $cartcontent=Cart::content();
+                //return response()->json($cartcontent);
+                foreach( $cartcontent as $row)
+                {
+                    $order_details=new Order_detail();
+                    $order_details->order_id=$order->id;
+                    $order_details->product_id=$row->id;
+                    $order_details->product_name=$row->name;
+                    $order_details->product_image=$row->options->image;
+                    $order_details->product_price=$row->price;
+                    $order_details->product_quantity=$row->qty;
+                   // return response()->json($order_details);
+                    $order_details->save();
+    
+                }
+                Cart::destroy();
+                return redirect('/welcome');
+    
+            
+            
+           
+        }
     }
 }

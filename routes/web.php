@@ -54,7 +54,7 @@ Route::get('frontend/cart/list', 'Frontend\Cart\CartController@cart_list')->name
 //check out payment===========
 Route::get('frontend/checkout/payment', 'Frontend\Cart\CartController@checkout_payment');
 //check out payment===========
-Route::get('frontend/confirm/order', 'Frontend\Cart\CartController@confirm_order')->name('confirm.order');
+Route::post('frontend/confirm/order', 'Frontend\Cart\CartController@confirm_order')->name('confirm.order');
 
 
 

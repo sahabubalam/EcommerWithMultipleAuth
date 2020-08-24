@@ -68,6 +68,9 @@
 
                             <h1 hidden>{{$sum =$sum+$content->subtotal}}</h1>
                             @endforeach
+							@php
+							Session::put(['total'=>$sum]);
+							@endphp
 							
 							<tr class="bottom_button">
 								<td>
